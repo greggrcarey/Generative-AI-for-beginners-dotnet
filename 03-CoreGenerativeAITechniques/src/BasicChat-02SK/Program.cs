@@ -5,6 +5,7 @@ using System.ClientModel;
 using Microsoft.Extensions.Configuration;
 using System.Text;
 
+//Semantic Kernal example
 var githubToken = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
 if (string.IsNullOrEmpty(githubToken))
 {
@@ -16,7 +17,7 @@ var uri = "https://models.inference.ai.azure.com";
 
 
 // create client
-var client = new OpenAIClient(new ApiKeyCredential(githubToken), 
+var client = new OpenAIClient(new ApiKeyCredential(githubToken),
     new OpenAIClientOptions { Endpoint = new Uri(uri) });
 
 // Create a chat completion service

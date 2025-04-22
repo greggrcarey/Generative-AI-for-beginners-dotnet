@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.SemanticKernel.Connectors.Ollama;
 using OllamaSharp;
 
-var modelId = "phi4-mini";
+var modelId = "deepseek-r1:latest";
 var uri = "http://localhost:11434/";
 
 

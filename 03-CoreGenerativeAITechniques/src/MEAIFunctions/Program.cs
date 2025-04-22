@@ -11,7 +11,12 @@ if (string.IsNullOrEmpty(githubToken))
     githubToken = config["GITHUB_TOKEN"];
 }
 
-ChatOptions options = new ChatOptions
+if (string.IsNullOrEmpty(githubToken))
+{
+    throw new NullReferenceException();
+}
+
+ChatOptions options = new()
 {
     Tools = [
         AIFunctionFactory.Create(GetTheWeather)
@@ -29,6 +34,11 @@ IChatClient client = new ChatCompletionsClient(
 
 var question = "Do I need an umbrella today?";
 Console.WriteLine($"question: {question}");
+
+var responseOne = await client.GetResponseAsync("What is today's date", options); // won't call the function
+
+var responseTwo = await client.GetResponseAsync("Should I bring an umbrella with me today?", options); // will call the function
+
 var response = await client.GetResponseAsync(question, options);
 Console.WriteLine($"response: {response}");
 

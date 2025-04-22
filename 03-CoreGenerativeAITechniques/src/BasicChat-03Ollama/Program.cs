@@ -2,7 +2,7 @@
 using System.Text;
 
 IChatClient client =
-    new OllamaChatClient(new Uri("http://localhost:11434/"), "phi4-mini");
+    new OllamaChatClient(new Uri("http://localhost:11434/"), "deepseek-r1:latest"); //deepseek-r1:1.5b
 
 // here we're building the prompt
 StringBuilder prompt = new StringBuilder();
